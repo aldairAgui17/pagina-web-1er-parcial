@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web 1 parcial </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        form {
+            margin: 20px 0;
+        }
+        form input, form select, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        form button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function agregarFila() {
+            const nombre = document.getElementById('nombre').value;
+            const edad = document.getElementById('edad').value;
+            const ciudad = document.getElementById('ciudad').value;
+
+            if (nombre && edad && ciudad) {
+                const tabla = document.querySelector('table tbody');
+                const fila = document.createElement('tr');
+
+                fila.innerHTML = `
+                    <td>${nombre}</td>
+                    <td>${edad}</td>
+                    <td>${ciudad}</td>
+                `;
+
+                tabla.appendChild(fila);
+
+                document.getElementById('nombre').value = '';
+                document.getElementById('edad').value = '';
+                document.getElementById('ciudad').value = '';
+            } else {
+                alert('Por favor, completa todos los campos antes de enviar.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Página Web 1 parcial</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Hipervínculo</h2>
+            <p>Visita el <a href="https://www.tese.edu.mx/tese2020/" target="_blank">sitio web TESE</a> para más información.</p>
+        </section>
+
+        <section>
+            <h2>Lista</h2>
+            <h3>Lista Ordenada</h3>
+            <ol>
+                <li>Elemento uno</li>
+                <li>Elemento dos</li>
+                <li>Elemento tres</li>
+            </ol>
+            <h3>Lista Desordenada</h3>
+            <ul>
+                <li>Elemento A</li>
+                <li>Elemento B</li>
+                <li>Elemento C</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Tabla</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Ciudad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Aldair</td>
+                        <td>22</td>
+                        <td>México</td>
+                    </tr>
+                    <tr>
+                        <td>Kevin</td>
+                        <td>23</td>
+                        <td>Ecatepec</td>
+                    </tr>
+                    <tr>
+                        <td>Alan</td>
+                        <td>25</td>
+                        <td>Neza</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Imágenes</h2>
+            <img src="https://i0.wp.com/la-lista.com/wp-content/uploads/2023/07/Tecnologico-de-Estudios-Superiores-de-Ecatepec.jpg?fit=1280%2C854&ssl=1" alt="Imagen de ejemplo" width="300">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR59qfy24EPQgBi95aDpOqFc5YUPDGxEGpSlFe47Bi8xJQ_qkB7rgtsmJI6YuIzrYlN51s&usqp=CAU" alt="Imagen de ejemplo" width="300">
+        </section>
+
+        <section>
+            <h2>Elementos de Formulario</h2>
+            <form onsubmit="event.preventDefault(); agregarFila();">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre">
+
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" placeholder="Escribe tu edad">
+
+                <label for="ciudad">Ciudad:</label>
+                <select id="ciudad" name="ciudad">
+                    <option value="México">México</option>
+                    <option value="Estados unidos">EEstados unidos</option>
+                    <option value="Argentina">Argentina</option>
+                </select>
+
+                <button type="submit">Agregar a la tabla</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
